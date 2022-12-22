@@ -1,0 +1,19 @@
+# Write your MySQL query statement below
+
+select user_id ,concat(upper(substring(name,1,1)), lower(substring(name,2,length(name)-1)))as name from Users order by user_id 
+
+Input: 
+Users table:
++---------+-------+
+| user_id | name  |
++---------+-------+
+| 1       | aLice |
+| 2       | bOB   |
++---------+-------+
+Output: 
++---------+-------+
+| user_id | name  |
++---------+-------+
+| 1       | Alice |
+| 2       | Bob   |
++---------+-------+
