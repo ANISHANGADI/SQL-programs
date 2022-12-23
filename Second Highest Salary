@@ -1,0 +1,28 @@
+# Write your MySQL query statement below
+
+  /*SELECT salary as SecondHighestSalary FROM 
+     (
+      SELECT distinct salary,
+      RANK() OVER (ORDER BY salary DESC) EMPRANK
+      FROM Employee
+     )s
+    WHERE s.emprank = 2 
+    */
+    select max(salary) as SecondHighestSalary from Employee where salary<(select max(salary) from Employee)
+    
+    Input: 
+Employee table:
++----+--------+
+| id | salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+Output: 
++---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+    
